@@ -10,16 +10,19 @@ const App = () => {
         Article 1
         <Rating value={4}/>
         <PageTitle title={'Menu'}/>
-        <Accordion titleAcc={'Menu'}/>
-        <Accordion titleAcc={'Setting'}/>
+        <Accordion titleValue={'Menu'}/>
+        <Accordion titleValue={'Users'}/>
         Article 2
         <Rating value={3}/>
       </div>
   );
 }
 
-const Rating = (props: any) => {
-  console.log('Rating rendering')
+type RatingPropsType = {
+    value: number
+}
+
+const Rating = (props: RatingPropsType) => {
   if (props.value === 1) {
     return (
         <div>
@@ -86,8 +89,11 @@ const Rating = (props: any) => {
   );
 }
 
-const Star = (props: any) => {
-  console.log('Star rendering')
+type StarPropsType = {
+    selected: boolean
+}
+
+const Star = (props: StarPropsType) => {
   if (props.selected) {
     return (
         <span><b>star </b></span>
@@ -99,8 +105,11 @@ const Star = (props: any) => {
   }
 }
 
-const PageTitle = (props: any) => {
-  console.log('PageTitle rendering')
+type PageTitlePropsType = {
+    title: string
+}
+
+const PageTitle = (props: PageTitlePropsType) => {
   return (
       <h1>{props.title}</h1>
   )
