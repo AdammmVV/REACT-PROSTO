@@ -10,8 +10,8 @@ const App = () => {
         Article 1
         <Rating value={4}/>
         <PageTitle title={'Menu'}/>
-        <Accordion titleValue={'Menu'}/>
-        <Accordion titleValue={'Users'}/>
+        <Accordion titleValue={'Menu'} collapsed={true}/>
+        <Accordion titleValue={'Users'} collapsed={false}/>
         Article 2
         <Rating value={3}/>
       </div>
