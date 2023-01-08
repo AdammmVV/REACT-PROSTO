@@ -1,8 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
 
+
 const App = () => {
+
+    let [collapsed, setCollapsed] = useState(true)
+
+    function collapsedClick() {
+        setCollapsed(!collapsed)
+    }
+
+
   console.log('App rendering')
   return (
       <div className="App">
@@ -10,8 +19,8 @@ const App = () => {
         Article 1
         <Rating value={4}/>
         <PageTitle title={'Menu'}/>
-        <Accordion titleValue={'Menu'} collapsed={true}/>
-        <Accordion titleValue={'Users'} collapsed={false}/>
+        <Accordion titleValue={'Menu'} collapsed={collapsed} collapsedClick={collapsedClick}/>
+        <Accordion titleValue={'Users'} collapsed={collapsed} collapsedClick={collapsedClick}/>
         Article 2
         <Rating value={3}/>
       </div>
