@@ -10,9 +10,6 @@ const App = () => {
     function collapsedClick() {
         setCollapsed(!collapsed)
     }
-
-
-    console.log('App rendering')
     return (
         <div className="App">
             <PageTitle title={'Hello, samurai! Let\'s go!'}/>
@@ -29,19 +26,19 @@ const App = () => {
 }
 
 export const OnOffButton = () => {
-    const [onOff, setOnOff] = useState()
+    const [onOff, setOnOff] = useState(false)
 
-    function colorButtonAndCircle(value: any) {
+    function colorButtonAndCircle(value: boolean) {
         setOnOff(value)
     }
 
     return (
         <div className='onOffButton'>
             <div>
-                <button className={onOff && 'on'} onClick={() => colorButtonAndCircle(true)}>ON</button>
+                <button className={onOff ? 'on' : ''} onClick={() => colorButtonAndCircle(true)}>ON</button>
             </div>
             <div>
-                <button className={!onOff && 'off'} onClick={() => colorButtonAndCircle(false)}>OFF</button>
+                <button className={!onOff ? 'off' : ''} onClick={() => colorButtonAndCircle(false)}>OFF</button>
             </div>
             <div className={`circle ${onOff && 'on'} ${!onOff && 'off'}`}>
             </div>
