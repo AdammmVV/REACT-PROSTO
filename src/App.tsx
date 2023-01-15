@@ -32,15 +32,19 @@ export const OnOffButton = () => {
         setOnOff(value)
     }
 
+    const onBtn= onOff ? 'on' : '';
+    const offBtn = !onOff ? 'off' : '';
+    const circle = `circle ${onOff && 'on'} ${!onOff && 'off'}`;
+
     return (
         <div className='onOffButton'>
             <div>
-                <button className={onOff ? 'on' : ''} onClick={() => colorButtonAndCircle(true)}>ON</button>
+                <button className={onBtn} onClick={() => colorButtonAndCircle(true)}>ON</button>
             </div>
             <div>
-                <button className={!onOff ? 'off' : ''} onClick={() => colorButtonAndCircle(false)}>OFF</button>
+                <button className={offBtn} onClick={() => colorButtonAndCircle(false)}>OFF</button>
             </div>
-            <div className={`circle ${onOff && 'on'} ${!onOff && 'off'}`}>
+            <div className={circle}>
             </div>
         </div>
     )
