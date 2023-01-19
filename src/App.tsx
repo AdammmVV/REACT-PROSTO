@@ -1,140 +1,27 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
+import {OnOffButton} from "./components/OnOffButton/OnOffButton";
+import {UncontrollableAccordion} from "./components/Accordion/UncontrollableAccordion";
+import {Rating} from "./components/Star/Star";
 
 
 const App = () => {
 
-    let [collapsed, setCollapsed] = useState(true)
-
-    function collapsedClick() {
-        setCollapsed(!collapsed)
-    }
     return (
         <div className="App">
             <PageTitle title={'Hello, samurai! Let\'s go!'}/>
             Article 1
-            <Rating value={4}/>
+            <Rating/>
             <PageTitle title={'Menu'}/>
-            <Accordion titleValue={'Menu'} collapsed={collapsed} collapsedClick={collapsedClick}/>
-            <Accordion titleValue={'Users'} collapsed={collapsed} collapsedClick={collapsedClick}/>
+            <Accordion titleValue={'Menu'} collapsed={true}/>
+            <Accordion titleValue={'Users'} collapsed={false}/>
+            <UncontrollableAccordion titleValue={'Menu'}/>
             Article 2
-            <Rating value={3}/>
+            <Rating/>
             <OnOffButton/>
         </div>
     );
-}
-
-export const OnOffButton = () => {
-    const [onOff, setOnOff] = useState(false)
-
-    function colorButtonAndCircle(value: boolean) {
-        setOnOff(value)
-    }
-
-    const onBtn= onOff ? 'on' : '';
-    const offBtn = !onOff ? 'off' : '';
-    const circle = `circle ${onOff && 'on'} ${!onOff && 'off'}`;
-
-    return (
-        <div className='onOffButton'>
-            <div>
-                <button className={onBtn} onClick={() => colorButtonAndCircle(true)}>ON</button>
-            </div>
-            <div>
-                <button className={offBtn} onClick={() => colorButtonAndCircle(false)}>OFF</button>
-            </div>
-            <div className={circle}>
-            </div>
-        </div>
-    )
-}
-
-type RatingPropsType = {
-    value: number
-}
-
-const Rating = (props: RatingPropsType) => {
-    if (props.value === 1) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-            </div>
-        );
-    }
-    if (props.value === 2) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-            </div>
-        );
-    }
-    if (props.value === 3) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-            </div>
-        );
-    }
-    if (props.value === 4) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={false}/>
-            </div>
-        );
-    }
-    if (props.value === 5) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-            </div>
-        );
-    }
-    return (
-        <div>
-            <Star selected={false}/>
-            <Star selected={false}/>
-            <Star selected={false}/>
-            <Star selected={false}/>
-            <Star selected={false}/>
-        </div>
-    );
-}
-
-type StarPropsType = {
-    selected: boolean
-}
-
-const Star = (props: StarPropsType) => {
-    if (props.selected) {
-        return (
-            <span><b>star </b></span>
-        );
-    } else {
-        return (
-            <span>star </span>
-        );
-    }
 }
 
 type PageTitlePropsType = {
