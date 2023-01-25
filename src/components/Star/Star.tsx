@@ -1,18 +1,22 @@
-import React, {useState} from "react";
+import React from "react";
 import s from './Star.module.css'
 
 export type RatingStarType = 0 | 1 | 2 | 3 | 4 | 5
 
-export const Rating = () => {
+export type RatingPropsType = {
+    value: RatingStarType
+    setRatingValue: (value:RatingStarType)=>void
+}
 
-    const [rating, setRating] = useState<RatingStarType>(0)
+export const Rating = (props: RatingPropsType) => {
+
     return (
         <div>
-            <Star selected={rating > 0} setRating={setRating} value={1}/>
-            <Star selected={rating > 1} setRating={setRating} value={2}/>
-            <Star selected={rating > 2} setRating={setRating} value={3}/>
-            <Star selected={rating > 3} setRating={setRating} value={4}/>
-            <Star selected={rating > 4} setRating={setRating} value={5}/>
+            <Star selected={props.value > 0} setRating={props.setRatingValue} value={1}/>
+            <Star selected={props.value > 1} setRating={props.setRatingValue} value={2}/>
+            <Star selected={props.value > 2} setRating={props.setRatingValue} value={3}/>
+            <Star selected={props.value > 3} setRating={props.setRatingValue} value={4}/>
+            <Star selected={props.value > 4} setRating={props.setRatingValue} value={5}/>
         </div>
     );
 }
