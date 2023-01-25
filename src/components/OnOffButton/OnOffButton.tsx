@@ -27,15 +27,19 @@ export const circleStyle = {
 
 export const OnOffButton: React.FC<OnOffButtonPropsType> = ({onOff, setOnOff}) => {
 
+    const finalOnStyle = {...onStyle, backgroundColor: onOff ? 'green' : 'white'}
+    const finalOffStyle = {...offStyle, backgroundColor: onOff ? 'white' : 'red'}
+    const finalCircleStyle = {...circleStyle, backgroundColor: onOff ? 'green' : 'red'}
+
     return (
         <div className='onOffButton'>
             <div>
-                <button style={{...onStyle, backgroundColor: onOff ? 'green' : 'white'}} onClick={() => setOnOff(true)}>ON</button>
+                <button style={finalOnStyle} onClick={() => setOnOff(true)}>ON</button>
             </div>
             <div>
-                <button style={{...offStyle, backgroundColor: onOff ? 'white' : 'red'}} onClick={() => setOnOff(false)}>OFF</button>
+                <button style={finalOffStyle} onClick={() => setOnOff(false)}>OFF</button>
             </div>
-            <div style={{...circleStyle, backgroundColor: onOff ? 'green' : 'red'}}>
+            <div style={finalCircleStyle}>
             </div>
         </div>
     )

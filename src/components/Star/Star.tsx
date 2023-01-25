@@ -25,7 +25,7 @@ type StarPropsType = {
     value: RatingStarType
 }
 export const Star = (props: StarPropsType) => {
-    const finalStarStyle = props.selected ? {backgroundColor: 'yellow', display: 'inlineBlock'} : {backgroundColor: 'white'}
+    const finalStarStyle = props.selected ? {backgroundColor: 'yellow'} : {backgroundColor: 'white'}
     const onClickStarHandler = () => {
         props.setRating(props.value)
     }
