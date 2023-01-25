@@ -7,9 +7,13 @@ export type AccordionPropsType = {
 }
 
 const Accordion: React.FC<AccordionPropsType> = ({titleValue, collapsed, setAccordionCollapsed}) => {
+    const setAccordionCollapsedHandler = () => {
+        setAccordionCollapsed(!collapsed)
+    }
+
     return (
         <div>
-            <AccordionTitle title={titleValue} collapsed={collapsed} setAccordionCollapsed={setAccordionCollapsed}/>
+            <AccordionTitle title={titleValue} setAccordionCollapsed={setAccordionCollapsedHandler}/>
             {!collapsed && <AccordionBody/>}
         </div>
     )
@@ -17,13 +21,12 @@ const Accordion: React.FC<AccordionPropsType> = ({titleValue, collapsed, setAcco
 
 type AccordionTitlePropsType = {
     title: string
-    collapsed: boolean
-    setAccordionCollapsed: (value: boolean) => void
+    setAccordionCollapsed: () => void
 }
 
-const AccordionTitle: React.FC<AccordionTitlePropsType> = ({title, collapsed, setAccordionCollapsed}) => {
+const AccordionTitle: React.FC<AccordionTitlePropsType> = ({title, setAccordionCollapsed}) => {
     const onClickCollapsedHandler = () => {
-        setAccordionCollapsed(!collapsed)
+        setAccordionCollapsed()
     }
 
     return <h3 onClick={onClickCollapsedHandler}>-- {title} --</h3>
