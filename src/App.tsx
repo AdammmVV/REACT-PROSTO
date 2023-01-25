@@ -1,24 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
 import {OnOffButton} from "./components/OnOffButton/OnOffButton";
 import {UncontrollableAccordion} from "./components/Accordion/UncontrollableAccordion";
-import {Rating} from "./components/Star/Star";
+import {Rating, RatingStarType} from "./components/Star/Star";
 
 
 const App = () => {
-
+    const [ratingValue, setRatingValue] = useState<RatingStarType>(0)
     return (
         <div className="App">
             <PageTitle title={'Hello, samurai! Let\'s go!'}/>
             Article 1
-            <Rating/>
+            <Rating value={ratingValue} setRatingValue={setRatingValue}/>
             <PageTitle title={'Menu'}/>
             <Accordion titleValue={'Menu'} collapsed={true}/>
             <Accordion titleValue={'Users'} collapsed={false}/>
             <UncontrollableAccordion titleValue={'Menu'}/>
             Article 2
-            <Rating/>
+            {/*<UncontrolledRating/>*/}
             <OnOffButton/>
         </div>
     );
