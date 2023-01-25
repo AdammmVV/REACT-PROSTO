@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import * as buffer from "buffer";
 
 type AccordionPropsType = {
     titleValue: string
