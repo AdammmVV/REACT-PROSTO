@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import s from './Star.module.css'
+import s from '../Rating/Rating.module.css'
 
 export type RatingStarType = 0 | 1 | 2 | 3 | 4 | 5
 
