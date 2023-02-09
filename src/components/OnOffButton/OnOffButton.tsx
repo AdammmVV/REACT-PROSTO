@@ -14,14 +14,12 @@ export const onStyle = {
 export const offStyle = {
     width: '50px',
     height: '50px',
-    margin: '5px',
 }
 
 export const circleStyle = {
     width: '70px',
     height: '70px',
     border: '1px solid black',
-    margin: '0 auto',
     borderRadius: '50px',
 }
 
