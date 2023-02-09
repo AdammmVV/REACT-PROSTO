@@ -1,0 +1,33 @@
+.wrapper {
+    position: relative;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.unCollapsed {
+    border: 1px solid rgb(63, 63, 63);
+    border-radius: 10px;
+    display: inline-block;
+    width: 150px;
+    padding: 5px 0 5px 0;
+}
+
+.collapsed {
+    border: 1px solid rgb(63, 63, 63);
+    display: inline-block;
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.collapsed div {
+}
+
+.unCollapsed div {
+    padding: 5px 0 5px 0;
+}
+.unCollapsed div:hover {
+    background-color: #1ea7fd;
+}
