@@ -1,4 +1,4 @@
-import React from "react";
+import React, {MouseEvent} from "react";
 
 export type AccordionPropsType = {
     titleValue: string
@@ -6,7 +6,7 @@ export type AccordionPropsType = {
     setAccordionCollapsed: (value: boolean) => void
 }
 
-const Accordion: React.FC<AccordionPropsType> = (
+export const Accordion: React.FC<AccordionPropsType> = (
     {
         titleValue,
         collapsed,
@@ -36,7 +36,7 @@ const AccordionTitle: React.FC<AccordionTitlePropsType> = (
         title,
         setAccordionCollapsed
     }) => {
-    const onClickCollapsedHandler = () => {
+    const onClickCollapsedHandler = (e: MouseEvent<HTMLHeadingElement>) => {
         setAccordionCollapsed()
     }
 
@@ -52,5 +52,3 @@ const AccordionBody = () => {
         </ul>
     )
 }
-
-export default Accordion;
