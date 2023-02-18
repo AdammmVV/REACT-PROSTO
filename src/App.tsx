@@ -5,6 +5,7 @@ import {OnOffButton} from "./components/OnOffButton/OnOffButton";
 import {Rating, RatingStarType} from "./components/Rating/Rating";
 import {UncontrolledOnOffButton} from "./components/OnOffButton/UncontrolledOnOffButton";
 import {Select} from "./components/Select/Select";
+import {UncontrollableAccordion} from "./components/Accordion/UncontrollableAccordion";
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
                        setAccordionCollapsed={setAccordionCollapsed}/>
             <OnOffButton onOff={onOffButton} setOnOff={setOnOffButton}/>
             <UncontrolledOnOffButton/> {onOffButton.toString()}
+            <UncontrollableAccordion titleValue={'MENU'}/>
             <Select/>
         </div>
     );
