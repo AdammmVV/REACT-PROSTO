@@ -2,6 +2,8 @@
     position: relative;
     font-weight: 500;
     font-size: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .unCollapsed {
@@ -28,6 +30,24 @@
 .unCollapsed div {
     padding: 5px 0 5px 0;
 }
-.unCollapsed div:hover {
+
+.hover {
     background-color: #1ea7fd;
 }
+
+.option{
+    border: 1px solid black;
+    border-radius: 5px;
+    min-width: 5px;
+    width: 150px;
+    text-align: center;
+}
+
+.option div {
+    width: 150px;
+    padding-bottom: 3px;
+}
+
+/*.unCollapsed div:hover {*/
+/*    background-color: #1ea7fd;*/
+/*}*/
