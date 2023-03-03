@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from "react";
+import React, {useCallback, useMemo, useState} from "react";
 import {UsersPropsType} from "./ReactMemo.stories";
 
 export default {
@@ -77,6 +77,45 @@ export const HelpForReactExample = () => {
             <button onClick={addUser}>addUser</button>
             {counter}
             <UsersMemo user={newArr}/>
+        </>
+    )
+}
+
+type BooksPropsType = {
+    addBooks: ()=> void
+    books: string[]
+}
+
+export const Books = (props: BooksPropsType) => {
+    console.log("blat books")
+    console.log(props.books)
+    return (
+        <div>
+            <button onClick={props.addBooks}>addBooks</button>
+            {'Books'}
+        </div>
+    )
+}
+
+const BooksMemo = React.memo(Books)
+
+
+export const HelpForReactExampleUseCallBack = () => {
+
+    const [counter, setCounter] = useState(0)
+    const [books, setBooks] = useState(['HTML', 'React', 'Redux', 'CSS'])
+
+    const addBooks = () => setBooks([...books, 'Masha'])
+
+    // const addBooksMemo = useMemo(()=> addBooks, [books])
+    const addBooksCallBack = useCallback(addBooks, [books])
+
+    console.log('blat Help')
+    return (
+        <>
+            <button onClick={() => setCounter(counter + 1)}>+</button>
+            {counter}
+            <BooksMemo addBooks={addBooksCallBack} books={books}/>
         </>
     )
 }
